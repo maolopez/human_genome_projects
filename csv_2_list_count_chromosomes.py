@@ -42,6 +42,7 @@ with open(filename, 'r') as my_file:
         continue
 
 #print(chromosomes)
+print("This script extract the chromosomes from a genome's CSV file into a list and then calculate the frequency of each chromosome")
 dictOfElems = getDuplicatesWithCount(chromosomes)
 for key, value in dictOfElems.items():
         total = total + value

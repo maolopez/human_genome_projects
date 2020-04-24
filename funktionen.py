@@ -1,4 +1,16 @@
+#!/usr/bin/python
+
+## Script Name: funktionen.py
+## Author: Mauricio G. Lopez
+## Created: 2020.02.24
+## Last update: 2020.04.24
+## This script relies on module funktionen
+## Not intended to be run as a standalone
+##
+
+#System Modules
 import csv
+import os.path
 
 #https://thispointer.com/python-find-duplicates-in-a-list-with-frequency-count-index-positions/
 def getDuplicatesWithCount(w):
@@ -21,22 +33,26 @@ def getDuplicatesWithCount(w):
 def read_csv(f, c, n):
     # read CSV file & load into a list
     c = []
-    with open(f, 'r') as my_file:
-        reader = csv.reader(my_file, delimiter='\n')
-        for delimiter in reader:
-            my_list = my_file.read()
-            #clean single quotes, and \n, split string into elements in a list.
-            my_list = my_list.strip('\n')
-            my_list = my_list.replace('\n' , ',')
-            genomes = my_list.split(',')
-            try:
-                #Isolate the chromosomes from the gemome
-                for genome in genomes:
-                   c.append(genomes[n])
-                   n += 4
-            except IndexError:
-                pass
-            continue
+    if not os.path.exists(f):
+        print("Give me a local file.csv or use -h in order to get help")
+        exit(0)
+    else:    
+        with open(f, 'r') as my_file:  
+            reader = csv.reader(my_file, delimiter='\n')
+            for delimiter in reader:
+                my_list = my_file.read()
+                #clean single quotes, and \n, split string into elements in a list.
+                my_list = my_list.strip('\n')
+                my_list = my_list.replace('\n' , ',')
+                genomes = my_list.split(',')
+                try:
+                    #Isolate the chromosomes from the gemome
+                    for genome in genomes:
+                       c.append(genomes[n])
+                       n += 4
+                except IndexError:
+                    pass
+                continue
     return c
 
 
@@ -46,26 +62,30 @@ def read_csv_x2(f, c, n):
     c = []
     chromosomes = []
     genotypes = []
-    with open(f, 'r') as my_file:
-        reader = csv.reader(my_file, delimiter='\n')
-        for delimiter in reader:
-            my_list = my_file.read()
-            #clean single quotes, and \n, split string into elements in a list.
-            my_list = my_list.strip('\n')
-            my_list = my_list.replace('\n' , ',')
-            genomes = my_list.split(',')
-            try:
-                #Isolate the pair chromosome::genotype from the genome
-                for genome in genomes:
-                   chromosomes.append(genomes[n])
-                   n += 2
-                   genotypes.append(genomes[n])
-                   c.append((chromosomes[i], genotypes[i]))
-                   n += 2
-                   i += 1
-            except IndexError:
-                pass
-            continue
+    if not os.path.exists(f):
+        print("Give me a local file.csv or use -h in order to get help")
+        exit(0)
+    else:    
+        with open(f, 'r') as my_file:
+            reader = csv.reader(my_file, delimiter='\n')
+            for delimiter in reader:
+                my_list = my_file.read()
+                #clean single quotes, and \n, split string into elements in a list.
+                my_list = my_list.strip('\n')
+                my_list = my_list.replace('\n' , ',')
+                genomes = my_list.split(',')
+                try:
+                    #Isolate the pair chromosome::genotype from the genome
+                    for genome in genomes:
+                       chromosomes.append(genomes[n])
+                       n += 2
+                       genotypes.append(genomes[n])
+                       c.append((chromosomes[i], genotypes[i]))
+                       n += 2
+                       i += 1
+                except IndexError:
+                    pass
+                continue
     return c
 
 

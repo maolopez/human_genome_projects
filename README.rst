@@ -1,10 +1,16 @@
-<h1>#human_genome_projects</h1>
-Manipulating txt, csv files with human genome information.
+human_genome_projects
+=====================
 
+Manipulating txt, csv files with human genome information
 
-General description:
+General description
+===================
+
 A CSV file with a Human DNA genoma has 2395592 words. Instead a text file with the Bible book has only 824383 words. The CSV files has 4 columns and 598912 rows. The columns are rsid, chromosome, position and genotype. Percentages are calculated too.
 
+
+Usage
+-----
 
 |*Script*                                   |*Description*                                 |*Usage*                                          |
 | ------------------------------------------|:--------------------------------------------:|:------------------------------------------------|

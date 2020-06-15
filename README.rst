@@ -14,7 +14,6 @@ Usage
 
 |*Script*                                   |*Description*                                 |*Usage*                                          |
 
-| ------------------------------------------|:--------------------------------------------:|:------------------------------------------------|
 
 |csv_2_list_count_genotypes.py              |calculate the frequency of each genotype      |python3 csv_2_list_count_genotypes.py file.csv   |
 

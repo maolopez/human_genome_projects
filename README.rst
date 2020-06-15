@@ -13,7 +13,11 @@ Usage
 -----
 
 |*Script*                                   |*Description*                                 |*Usage*                                          |
+
 | ------------------------------------------|:--------------------------------------------:|:------------------------------------------------|
+
 |csv_2_list_count_genotypes.py              |calculate the frequency of each genotype      |python3 csv_2_list_count_genotypes.py file.csv   |
+
 |csv_2_list_count_chromosomes.py            |calculate the frequency of each chromosome    |python3 csv_2_list_count_chromosomes.py file.csv |
+
 |csv_2_list_count_genotypes_by_chromosome.py|the frequency of each chromosome:genotype pair|same logic                                       |

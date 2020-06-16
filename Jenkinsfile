@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                python setup.py bdist_wheel 
+                sh 'python setup.py bdist_wheel' 
             }
         }
     }

@@ -1,0 +1,9 @@
+.gitignore
+setup.py
+setup.cfg
+README.md
+README.rst
+Pipfile
+LICENSE
+LICENSE.txt
+Jenkinsfile

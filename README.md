@@ -21,3 +21,7 @@ pip install dist/human_genome_projects-0.1.0-py36-none-any.whl
 OR
 
 pip3.6 install --user https://s3.amazonaws.com/human_genome_projects-0.1.0-py36-none-any.whl
+
+<h3>Docker Usage</h3>
+
+docker run IMAGE_ID

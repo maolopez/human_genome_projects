@@ -4,9 +4,6 @@ node() {
     checkout scm
   }
   stage('build') {
-    sh "behave -i test.feature --junit"
-  }
-  stage('publish') {
-    junit 'reports/*.xml'
+    sh 'python setup.py bdist_wheel'
   }
 }

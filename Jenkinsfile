@@ -1,10 +1,12 @@
-pipeline {
-    agent none 
-    stages {
-        stage('Build') { 
-            steps {
-                sh 'python setup.py bdist_wheel' 
-            }
-        }
-    }
+node() {
+  stage('checkout') {
+    deleteDir()
+    checkout scm
+  }
+  stage('build') {
+    sh "behave -i test.feature --junit"
+  }
+  stage('publish') {
+    junit 'reports/*.xml'
+  }
 }

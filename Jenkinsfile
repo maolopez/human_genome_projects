@@ -4,6 +4,6 @@ node() {
     checkout scm
   }
   stage('build') {
-    sh 'python setup.py bdist_wheel'
+    sh 'python3 setup.py bdist_wheel'
   }
 }

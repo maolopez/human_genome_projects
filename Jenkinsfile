@@ -1,15 +1,17 @@
 pipeline {
-  agent { docker { image 'python:3.7.2' } }
-  stages {
-    stage('build') {
-      steps {
-        sh 'pip install -r requirements.txt'
-      }
+    agent any 
+    stages {
+        stage('prepare') { 
+            steps {
+                sh '''PYENV_HOME=$WORKSPACE/.human_genome_projects_free_style/
+                      if [ –d $PYENV_HOME ]; 
+                      then rm –rf $PYENV_HOME
+                      fi
+                      virtualenv -v $PYENV_HOME
+                      . $PYENV_HOME/bin/activate
+                      pip install -r requirements.txt
+                    '''
+            }
+        }
     }
-    stage('test') {
-      steps {
-        sh 'python test.py'
-      }   
-    }
-  }
 }

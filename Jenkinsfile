@@ -1,9 +1,9 @@
 pipeline {
     agent any 
     stages {
-        stage('prepare') { 
+        stage('build') { 
             steps {
-                sh '''PYENV_HOME=$WORKSPACE/.human_genome_projects_free_style/
+                sh '''PYENV_HOME=$WORKSPACE/.virtualenv/
                       if [ –d $PYENV_HOME ]; 
                       then rm –rf $PYENV_HOME
                       fi

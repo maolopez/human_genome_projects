@@ -1,20 +1,15 @@
 pipeline {
-    agent any 
-    stages {
-        stage('Build') { 
-            steps {
-                sh '''which pip
-                      which python
-                      which python3
-                      pip install -U setuptools
-                      pip install -U pip
-                      pip install -U wheel
-                      pip list
-                      which pip
-                      which python
-                      python setup.py bdist_wheel
-                    '''
-            }
-        }
+  agent { docker { image 'python:3.7.2' } }
+  stages {
+    stage('build') {
+      steps {
+        sh 'pip install -r requirements.txt'
+      }
     }
+    stage('test') {
+      steps {
+        sh 'python test.py'
+      }   
+    }
+  }
 }

@@ -3,7 +3,10 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh '''pip install -U setuptools
+                sh '''which pip
+                      which python
+                      which python3
+                      pip install -U setuptools
                       pip install -U pip
                       pip install -U wheel
                       pip list
